@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Boutique</title>
+    <link rel="stylesheet" href="stles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">Your Boutique</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Your Boutique</h1>
+        <p>Discover the latest trends in fashion</p>
+        <a href="#catalog" class="cta-button">Shop Now</a>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog">
+        <h2>Our Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product Image">
+                <h3>Product 1</h3>
+                <p>$50</p>
+                <button class="add-to-cart" onclick="addToCart('Product 1', 50)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product Image">
+                <h3>Product 2</h3>
+                <p>$70</p>
+                <button class="add-to-cart" onclick="addToCart('Product 2', 70)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="product3.jpg" alt="Product Image">
+                <h3>Product 3</h3>
+                <p>$90</p>
+                <button class="add-to-cart" onclick="addToCart('Product 3', 90)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a boutique offering the latest trends in fashion, focusing on quality and customer satisfaction.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="social-media">
+            <a href="https://wa.me/917702733028" target="_blank">Chat with us on WhatsApp</a>
+            <a href="https://www.instagram.com/yourboutique" target="_blank">Follow us on Instagram</a>
+        </div>
+    </section>
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="cart-popup">
+        <div class="cart-popup-content">
+            <h3>Your Cart</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total-price">0</span></p>
+            <button onclick="showCheckout()">Proceed to Checkout</button>
+            <button onclick="closeCart()">Close</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-popup" class="checkout-popup">
+        <div class="checkout-popup-content">
+            <h3>Checkout</h3>
+            <form id="checkout-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <label for="card-details">Card Details:</label>
+                <div id="card-element"></div> <!-- Stripe's Card Element will be here -->
+                <button type="submit" id="submit-btn">Pay Now</button>
+            </form>
+            <button onclick="closeCheckout()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Boutique. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
